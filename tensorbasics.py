@@ -6,27 +6,56 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 #"
 
 import tensorflow as tf
+#physical_devices = tf.config.list_physical_devices('GPU')
+#tf.config.experimental.set_memory_growth(physical_devices[0], True)
 
 #initialization of Tensors
 x = tf.constant(4, shape=(1,1), dtype=tf.float32)
-print(x)
-y =  tf.constant([[1,2,3],[4,5,6]])
-print(y)
+
+y = tf.constant([[1,2,3],[4,5,6]])
+
 
 a = tf.ones((3,3)) #3 x 3 matrix with values of ones
-print(a)
+
 b = tf.zeros((2,3)) #2 x 3 matrix of zeros
-print(b)
+
 c = tf.eye(3) # I for the identity matrix(eye)
-print(c)
+
 d = tf.random.normal((3,3), mean=0, stddev=1) #standard normal distribution
-print(d)
+
 e = tf.random.uniform((1,3), minval=0, maxval=1) #unifrom distribution
-print(e)
+
 f = tf.range(9) #a vector of 0,1,2,3,4,5,6,7,8
-print(f)
+
 g = tf.range(start=1, limit=10, delta=2) #delta means a step.after a value the program skips to the next two value of the range
-print(g)
+
 x = tf.cast(x, dtype=tf.float64) #a way to convert between different data types
-print(x)
 #tf.float (15,32,64), tf.int (8,16,32,64) tf.bool
+
+
+#Mathematical Operations
+x = tf.constant([1,2,3])
+y = tf.constant([9,8,7])
+
+z = tf.add(x,y) #addition 1 x 3 matrix tensors. z = x + y will also work
+print(z)
+h = tf.subtract(x,y) #subtraction
+print(h)
+i = tf.divide(x,y) #division x/y works too
+print(i)
+j = tf.multiply(x,y) #multiplication
+print(j)
+
+k = tf.tensordot(x, y, axes=1) #dot product of matrix
+print(k)
+l = tf.reduce_sum(x*y,axis=0) #dot product
+print(l)
+m = x ** 5 #x exponent 5
+print(m)
+
+#exampe of matrix multiplication
+x = tf.random.normal((2,3))
+y = tf.random.normal((3,4))
+n = tf.matmul(x,y) # x @ y also works
+print(n)
+

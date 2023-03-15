@@ -79,3 +79,14 @@ p = tf.constant([[1, 2],  # assigns a set of arrays containing values to p
                  [5, 6]])
 print(p[0, :])  # lists the first array
 print(p[0:2])  # lists the first and second arrays
+
+
+#Reshaping
+q = tf.range(9)
+print(q)
+
+r = tf.reshape(q, (3,3))       #reshapes the range of values 0-8 INTO A 3 X 3 MATRIX
+print(r)
+
+s = tf.transpose(r, perm=[1,0])     #transposes the matrix r
+print(s)

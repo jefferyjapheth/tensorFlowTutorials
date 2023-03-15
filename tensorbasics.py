@@ -6,8 +6,10 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 #"
 
 import tensorflow as tf
-#physical_devices = tf.config.list_physical_devices('GPU')
-#tf.config.experimental.set_memory_growth(physical_devices[0], True)
+#the two lines of code below make sure tensorflow doesn't allocate all your GPU memory   (personally don't need this as i didn't get any errors)
+physical_devices = tf.config.list_physical_devices('GPU')
+tf.config.experimental.set_memory_growth(physical_devices[0], True)
+
 
 #initialization of Tensors
 x = tf.constant(4, shape=(1,1), dtype=tf.float32)

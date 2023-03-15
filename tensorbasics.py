@@ -8,5 +8,25 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 import tensorflow as tf
 
 #initialization of Tensors
-x = tf.constant(4)
+x = tf.constant(4, shape=(1,1), dtype=tf.float32)
 print(x)
+y =  tf.constant([[1,2,3],[4,5,6]])
+print(y)
+
+a = tf.ones((3,3)) #3 x 3 matrix with values of ones
+print(a)
+b = tf.zeros((2,3)) #2 x 3 matrix of zeros
+print(b)
+c = tf.eye(3) # I for the identity matrix(eye)
+print(c)
+d = tf.random.normal((3,3), mean=0, stddev=1) #standard normal distribution
+print(d)
+e = tf.random.uniform((1,3), minval=0, maxval=1) #unifrom distribution
+print(e)
+f = tf.range(9) #a vector of 0,1,2,3,4,5,6,7,8
+print(f)
+g = tf.range(start=1, limit=10, delta=2) #delta means a step.after a value the program skips to the next two value of the range
+print(g)
+x = tf.cast(x, dtype=tf.float64) #a way to convert between different data types
+print(x)
+#tf.float (15,32,64), tf.int (8,16,32,64) tf.bool
